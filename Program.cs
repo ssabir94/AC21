@@ -62,7 +62,7 @@ internal class Program
                 break;
 
                 case 4:
-                Console.WriteLine("Función 4(Eliminar una nave).");//LIZ!! Esta es la otra función que te toca. Del resto me encargo yo <3
+                Console.WriteLine("Función 4(Eliminar una nave).");
                 break;
 
                 case 5:
