@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Desktop\\AC21\\AC21\\AC21.csproj": {}
+    "C:\\Users\\elsaa\\OneDrive\\Desktop\\naves.espaciales\\AC21\\AC21.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Desktop\\AC21\\AC21\\AC21.csproj": {
+    "C:\\Users\\elsaa\\OneDrive\\Desktop\\naves.espaciales\\AC21\\AC21.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\AC21\\AC21\\AC21.csproj",
+        "projectUniqueName": "C:\\Users\\elsaa\\OneDrive\\Desktop\\naves.espaciales\\AC21\\AC21.csproj",
         "projectName": "AC21",
-        "projectPath": "C:\\Users\\HP\\Desktop\\AC21\\AC21\\AC21.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\AC21\\AC21\\obj\\",
+        "projectPath": "C:\\Users\\elsaa\\OneDrive\\Desktop\\naves.espaciales\\AC21\\AC21.csproj",
+        "packagesPath": "C:\\Users\\elsaa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\elsaa\\OneDrive\\Desktop\\naves.espaciales\\AC21\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\elsaa\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -37,7 +37,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -53,12 +54,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100-rc.2.25502.107/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

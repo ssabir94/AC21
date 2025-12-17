@@ -54,9 +54,8 @@ internal class Program
                 break;//mejor poner break para no liarla, eh :P
 
                 case 2:
-                Console.WriteLine("Función 2(Cambiar nombre de una nave)."); //-->LIZ! Aquí va tu primera función :) 
-                break;
-
+                CambiarNombreNave(contadorNaves);
+                break;  //-->LIZ! Aquí va tu primera función :) 
                 case 3:
                 ListarNaves(contadorNaves);  //TODO OK, este método ya está hecho más abajo.
                 break;
@@ -144,7 +143,34 @@ internal class Program
 
     // OPCIÓN 2: CAMBIAR NOMBRE DE UNA NAVE (LIZ) -------->
 
+private static void CambiarNombreNave(int contadorNaves)
+{
+    if (contadorNaves == 0)
+    {
+        Console.WriteLine("No hay naves para renombrar.");
+        return;
+    }
 
+    ListarNaves(contadorNaves, "=== NAVES DISPONIBLES ===");
+
+    Console.Write("Ingrese el índice de la nave a renombrar: ");
+    int indice;
+    bool esNumero = int.TryParse(Console.ReadLine(), out indice);
+
+    if (!esNumero || indice < 0 || indice >= contadorNaves)
+    {
+        Console.WriteLine("Índice inválido.");
+        return;
+    }
+
+    Console.Write("Ingrese el nuevo nombre: ");
+    string nuevoNombre = Console.ReadLine();
+
+    string nombreAnterior = naves[indice];
+    naves[indice] = nuevoNombre;
+
+    Console.WriteLine($"✓ Nave renombrada: {nombreAnterior} → {nuevoNombre}");
+}
 
 
 
