@@ -43,8 +43,18 @@ internal class Program
             Console.WriteLine("6. Salir"); //última opción pero no menos importante, que sino será la historia interminable...
             Console.WriteLine(); //otro espacio más
             Console.Write("Seleccione una opción: ");
-            opcion = Convert.ToInt32(Console.ReadLine()); //importante que no nos dejemos esto
+            bool esNumero = int.TryParse(Console.ReadLine(), out opcion);//Nuevo cambio
+            //Hay que poner este TryParse para evitar que el programa se "cuelgue" si el usuario escribe algo que no sea un número.
+            //Antes teniamos "opcion = Convert.ToInt32(Console.ReadLine());" que daba error si el usuario escribía letras o símbolos.
 
+            //Validamos que la opción sea numérica y esté entre 1 y 6 para cumplir la validación del menú.
+            if (!esNumero || opcion < 1 || opcion > 6)
+            {
+                Console.WriteLine("Opción no válida. Por favor, seleccione una opción del 1 al 6.");
+                opcion = 0; //0 para que el programa siga y vuelva a mostrar el menú.
+                Console.WriteLine();
+                continue; //Inicio del do-while sin entrar al switch.
+            }
 
             //Ahora vamos con el switch, para que ese "opcion = 0" tome el valor que el usuario ha introducido:
             switch (opcion) 
@@ -55,7 +65,7 @@ internal class Program
 
                 case 2:
                 CambiarNombreNave(contadorNaves);
-                break;  //-->LIZ! Aquí va tu primera función :) 
+                break;  
                 
                 case 3:
                 ListarNaves(contadorNaves);  //TODO OK, este método ya está hecho más abajo.
@@ -142,11 +152,11 @@ internal class Program
     }
 
 
-    // OPCIÓN 2: CAMBIAR NOMBRE DE UNA NAVE (LIZ) -------->
+    // OPCIÓN 2: CAMBIAR NOMBRE DE UNA NAVE
 
    private static void CambiarNombreNave(int contadorNaves)
    {
-    if (contadorNaves == 0) // Hemos comprobado si hay naves creadas, porque no se puede renombrar si el contador es 0.
+    if (contadorNaves == 0) // Hemos comprobado si hay naves creadas, porque no se puede cambiar nombre si el contador es 0.
     {
         Console.WriteLine("No hay naves para renombrar.");
         return;
@@ -168,7 +178,10 @@ internal class Program
     }
 
     Console.Write("Ingrese el nuevo nombre: "); // Pedimos el nuevo nombre para la nave.
-    string nuevoNombre = Console.ReadLine();
+
+    string nuevoNombre = GenerarNombreUnico(contadorNaves); //Como nos dijiste, hacemos un "random" y no ponemos el nombre nosotras xD
+    Console.WriteLine(nuevoNombre); //Mostramos el nombre generado automáticamente.
+
 
     // Nombre no nulo ni con cadena vacía, para evitar nombres inválidos.
     if (nuevoNombre == null || nuevoNombre == "")
@@ -177,13 +190,17 @@ internal class Program
         return;
     }
 
-    string nombreAnterior = naves[indice]; // Guardamos el nombre anterior para el mensaje informativo.
+    // Por si pasa algo raro y saliera repe, lo evitamos.
+    string primerNombre = naves[indice]; //Esto es el nombre actual de la nave.
+    while (nuevoNombre == primerNombre)
+    {
+        nuevoNombre = GenerarNombreUnico(contadorNaves);
+    }
+
     naves[indice] = nuevoNombre; // Actualizamos el nombre de la nave en el array.
 
-    Console.WriteLine($"✓ Nave renombrada: {nombreAnterior} → {nuevoNombre}"); // Mensaje informativo del cambio.
+    Console.WriteLine($"✓ Nave renombrada: {primerNombre} → {nuevoNombre}"); // Mensaje informativo del cambio.
    }
-
-
 
 
     // OPCIÓN 3: LISTAR NAVES
